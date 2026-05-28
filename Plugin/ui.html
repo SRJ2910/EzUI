@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      padding: 16px;
+      width: 260px;
+      background: white;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #666;
+    }
+
+    button {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #18a0fb;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #0d8ae5;
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .row button {
+      flex: 1;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Widget Palette</h2>
+
+  <!-- Screen Presets -->
+
+  <div class="section">
+
+    <div class="section-title">
+      Screen Presets
+    </div>
+
+    <div class="row">
+
+      <button onclick="createScreen(320,240)">
+        320x240
+      </button>
+
+      <button onclick="createScreen(480,272)">
+        480x272
+      </button>
+
+    </div>
+
+    <button onclick="createScreen(800,480)">
+      800x480
+    </button>
+
+  </div>
+
+  <!-- TextView -->
+
+  <div class="section">
+
+    <div class="section-title">
+      TextView
+    </div>
+
+    <input
+      type="text"
+      id="textInput"
+      placeholder="Enter text"
+      value="TextView"
+    />
+
+    <button onclick="addTextView()">
+      Add TextView
+    </button>
+
+  </div>
+
+  <!-- ImageView -->
+
+  <div class="section">
+
+    <div class="section-title">
+      ImageView
+    </div>
+
+    <input
+      type="file"
+      id="imageInput"
+      accept="image/*"
+    />
+
+    <button onclick="addImageView()">
+      Add ImageView
+    </button>
+
+  </div>
+
+  <!-- QRView -->
+
+  <div class="section">
+
+    <div class="section-title">
+      QRView
+    </div>
+
+    <input
+      type="file"
+      id="qrInput"
+      accept="image/*"
+    />
+
+    <button onclick="addQRView()">
+      Add QRView
+    </button>
+
+  </div>
+
+  <!-- View -->
+
+  <div class="section">
+
+    <div class="section-title">
+      Other Widgets
+    </div>
+
+    <button onclick="addView()">
+      Add View
+    </button>
+
+  </div>
+
+  <script>
+
+    function sendMessage(message) {
+
+      parent.postMessage(
+        {
+          pluginMessage: message
+        },
+        '*'
+      );
+    }
+
+    // --------------------------------------------------
+    // TextView
+    // --------------------------------------------------
+
+    function addTextView() {
+
+      const text =
+        document.getElementById('textInput').value;
+
+      sendMessage({
+        type: 'create-textview',
+        text
+      });
+    }
+
+    // --------------------------------------------------
+    // ImageView
+    // --------------------------------------------------
+
+    async function addImageView() {
+
+      const input =
+        document.getElementById('imageInput');
+
+      if (!input.files.length) {
+
+        alert('Select an image first');
+        return;
+      }
+
+      const file = input.files[0];
+
+      const arrayBuffer =
+        await file.arrayBuffer();
+
+      const uint8Array =
+        Array.from(new Uint8Array(arrayBuffer));
+
+      sendMessage({
+        type: 'create-imageview',
+        imageData: uint8Array,
+        fileName: file.name
+      });
+    }
+
+    // --------------------------------------------------
+    // QRView
+    // --------------------------------------------------
+
+    async function addQRView() {
+
+      const input =
+        document.getElementById('qrInput');
+
+      if (!input.files.length) {
+
+        alert('Select a QR image first');
+        return;
+      }
+
+      const file = input.files[0];
+
+      const arrayBuffer =
+        await file.arrayBuffer();
+
+      const uint8Array =
+        Array.from(new Uint8Array(arrayBuffer));
+
+      sendMessage({
+        type: 'create-qrview',
+        imageData: uint8Array,
+        fileName: file.name
+      });
+    }
+
+    // --------------------------------------------------
+    // View
+    // --------------------------------------------------
+
+    function addView() {
+
+      sendMessage({
+        type: 'create-view'
+      });
+    }
+
+    // --------------------------------------------------
+    // Screen
+    // --------------------------------------------------
+
+    function createScreen(width, height) {
+
+      sendMessage({
+        type: 'create-screen',
+        width,
+        height
+      });
+    }
+
+  </script>
+
+</body>
+</html>
