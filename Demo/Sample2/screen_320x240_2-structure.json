@@ -1,0 +1,196 @@
+{
+  "metadata": {
+    "exportedAt": "2026-05-28T17:37:45.513Z",
+    "componentName": "screen_320x240_1",
+    "totalElements": 7,
+    "nestingDepth": 3,
+    "plugin": "Figma to JSON Exporter"
+  },
+  "designTokens": {
+    "colors": {
+      "color-rgb(0, 0, 0)": "rgb(0, 0, 0)",
+      "color-rgb(242, 242, 242)": "rgb(242, 242, 242)",
+      "color-rgb(51, 51, 51)": "rgb(51, 51, 51)",
+      "color-rgb(255, 0, 0)": "rgb(255, 0, 0)",
+      "color-rgb(0, 128, 0)": "rgb(0, 128, 0)"
+    },
+    "fonts": {
+      "inter": {
+        "family": "Inter",
+        "sizes": {
+          "size-16": "16px"
+        },
+        "weights": {
+          "weight-400": "400"
+        }
+      }
+    },
+    "spacing": {},
+    "effects": {}
+  },
+  "structure": {
+    "name": "screen_320x240_1",
+    "type": "FRAME",
+    "size": {
+      "w": 320,
+      "h": 240
+    },
+    "styles": {
+      "bg": "rgb(0, 0, 0)",
+      "border": {
+        "width": 2,
+        "color": "rgb(51, 51, 51)"
+      },
+      "layout": {
+        "direction": "row",
+        "gap": 0,
+        "align": {
+          "main": "start",
+          "cross": "start"
+        }
+      }
+    },
+    "children": [
+      {
+        "name": "textview_1",
+        "type": "FRAME",
+        "size": {
+          "w": 59,
+          "h": 31
+        },
+        "styles": {
+          "bg": "rgb(242, 242, 242)",
+          "border": {
+            "width": 1,
+            "color": "rgb(191, 191, 191)"
+          },
+          "layout": {
+            "direction": "row",
+            "gap": 0,
+            "align": {
+              "main": "start",
+              "cross": "start"
+            }
+          }
+        },
+        "children": [
+          {
+            "name": "hello",
+            "type": "TEXT",
+            "size": {
+              "w": 39,
+              "h": 19
+            },
+            "content": "Hello",
+            "styles": {
+              "bg": "rgb(51, 51, 51)",
+              "text": {
+                "family": "Inter",
+                "size": 16,
+                "weight": "400",
+                "align": "left"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "textview_2",
+        "type": "FRAME",
+        "size": {
+          "w": 64,
+          "h": 31
+        },
+        "styles": {
+          "bg": "rgb(242, 242, 242)",
+          "border": {
+            "width": 1,
+            "color": "rgb(191, 191, 191)"
+          },
+          "layout": {
+            "direction": "row",
+            "gap": 0,
+            "align": {
+              "main": "start",
+              "cross": "start"
+            }
+          }
+        },
+        "children": [
+          {
+            "name": "world",
+            "type": "TEXT",
+            "size": {
+              "w": 44,
+              "h": 19
+            },
+            "content": "World",
+            "styles": {
+              "bg": "rgb(51, 51, 51)",
+              "text": {
+                "family": "Inter",
+                "size": 16,
+                "weight": "400",
+                "align": "left"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "view_1",
+        "type": "FRAME",
+        "size": {
+          "w": 65,
+          "h": 64
+        },
+        "styles": {
+          "bg": "rgb(255, 0, 0)",
+          "border": {
+            "width": 1,
+            "color": "rgb(191, 191, 191)"
+          },
+          "layout": {
+            "direction": "row",
+            "gap": 0,
+            "align": {
+              "main": "start",
+              "cross": "start"
+            }
+          }
+        }
+      },
+      {
+        "name": "view_2",
+        "type": "FRAME",
+        "size": {
+          "w": 63,
+          "h": 64
+        },
+        "styles": {
+          "bg": "rgb(0, 128, 0)",
+          "border": {
+            "width": 1,
+            "color": "rgb(191, 191, 191)"
+          },
+          "layout": {
+            "direction": "row",
+            "gap": 0,
+            "align": {
+              "main": "start",
+              "cross": "start"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "summary": {
+    "components": 0,
+    "instances": 0,
+    "frames": 5,
+    "texts": 2,
+    "hasAutoLayout": true,
+    "hasEffects": false
+  }
+}
